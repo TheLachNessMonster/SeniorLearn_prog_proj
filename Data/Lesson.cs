@@ -1,4 +1,6 @@
-﻿namespace SeniorLearn.Data;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SeniorLearn.Data;
 
 public class Lesson
 {
@@ -15,5 +17,5 @@ public class Lesson
     public Status Status { get; set; }
 }
 
-public enum Status { DRAFT = 1, SCHEDULED = 2, CLOSED = 3, COMLETE = 4, CANCELLED = 5 }
+public enum Status { DRAFT = 1, SCHEDULED = 2, CLOSED = 3, COMPLETE = 4, CANCELLED = 5 }
 
