@@ -6,7 +6,6 @@ namespace SeniorLearn.Data;
 public class EntityMapper
 {
 
-
     public EntityMapper(ModelBuilder mb)
     {
 
@@ -26,6 +25,17 @@ public class EntityMapper
                .HasValue<Member>(Roles.HONORARY);
         });
 
+        //Membership mapping
+        mb.Entity<Membership>(m =>
+        {
+            m.Property(m => m.Member).IsRequired();
+            m.Property(m => m.StartDate).IsRequired().HasDefaultValue(DateTime.Now);
+            m.Property(m => m.RenewalDate).IsRequired().HasDefaultValue(DateTime.Now.AddMonths(3));
+            m.Property(m => m.Paid).IsRequired().HasDefaultValue(false);
+            //Metadata changetracker tag - consider building metadata suite
+            m.Property<DateTime>("LastChange");
+
+        });
 
         //Lesson mapping
         mb.Entity<Lesson>(l =>
@@ -45,6 +55,5 @@ public class EntityMapper
                .HasValue<Lesson>(Status.COMPLETE)
                .HasValue<Lesson>(Status.CANCELLED);
         });
-
     }
 }

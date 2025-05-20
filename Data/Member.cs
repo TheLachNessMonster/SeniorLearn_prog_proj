@@ -9,6 +9,7 @@ public class Member
     public string PhoneNumber { get; set; }
     public List<Lesson> Enrollments { get; set; }
     public Roles Role { get; set; }
+    public Membership Membership { get; set; }
 }
 
 
